@@ -7,4 +7,4 @@
 
 ## 说明
 - 需要移除控件的时候，其实把这个控件“隐藏”了，在HashMap里面处理数据的移除
-![效果如下](http://liuw53-wp.stor.sinaapp.com/Android%2Fscreencast-Genymotion-2016-05-09_04.49.25.93.webm)
+[效果如下](http://liuw53-wp.stor.sinaapp.com/Android%2Fscreencast-Genymotion-2016-05-09_04.49.25.93.webm)
