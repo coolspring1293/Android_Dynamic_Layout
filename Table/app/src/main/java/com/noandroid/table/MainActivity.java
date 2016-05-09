@@ -24,12 +24,8 @@ import java.util.Map;
 public class MainActivity extends Activity {
 
     private static int id = 100;
-
-
     private Button bt;
-
     private int count = 0;
-
     private HashMap<Integer, AutoCompleteTextView> hm = new HashMap<>();
 
     LinearLayout lin = null;
@@ -62,7 +58,7 @@ public class MainActivity extends Activity {
                 LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         newSingleRL = new RelativeLayout(this);
 
-        CreateUI();1234
+        CreateUI();
 
 
 //		final LinearLayout root = (LinearLayout) findViewById(R.id.layout_root); //获取总根结点
@@ -71,19 +67,13 @@ public class MainActivity extends Activity {
 
 
     private void CreateUI() {
-        newSingleRL = generateSingleLayout(id, "第" + (++count) + "个动态列表");
-        lin.addView(newSingleRL, LP_FW);//全部用父结点的布局参数
+        count ++;
+        newSingleRL = generateSingleLayout(id);
+        lin.addView(newSingleRL, LP_FW);
         getInfo();
     }
 
-    /**
-     * 新建一个列表item
-     *
-     * @param imageID 新建imageView的ID值
-     * @param str     TextView要显示的文字
-     * @return 新建的单项布局变量
-     */
-    private RelativeLayout generateSingleLayout(int imageID, String str) {
+    private RelativeLayout generateSingleLayout(int imageID) {
         final RelativeLayout layout_root_relative = new RelativeLayout(this);
 
         LinearLayout layout_sub_Lin = new LinearLayout(this);
@@ -100,16 +90,24 @@ public class MainActivity extends Activity {
 
         actv.setTextSize(20);
         actv.setSingleLine();
+
+        actv.setWidth(960);
+        actv.setHeight(120);
+
         actv.setId(View.generateViewId());;
 
+
         actv.setLayoutParams(LP_WW);
+
+
+
 
         layout_sub_Lin.addView(actv);
 
         RelativeLayout.LayoutParams RL_MW = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);//尤其注意这个位置，用的是父容器的布局参数
-        RL_MW.setMargins(5, 5, 10, 5);
-        RL_MW.addRule(RelativeLayout.LEFT_OF, imageID);
+        //RL_MW.setMargins(5, 5, 10, 5);
+        RL_MW.addRule(RelativeLayout.ALIGN_PARENT_LEFT, imageID);
         layout_root_relative.addView(layout_sub_Lin, RL_MW);
 
 
@@ -119,15 +117,18 @@ public class MainActivity extends Activity {
         ImageButton imageView = new ImageButton(this);
         RelativeLayout.LayoutParams RL_WW = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        imageView.setPadding(5, 5, 5, 5);
+
         imageView.setId(View.generateViewId());
         RL_WW.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        RL_WW.addRule(RelativeLayout.CENTER_HORIZONTAL);
         imageView.setLayoutParams(RL_WW);
         imageView.setClickable(true);
         imageView.setId(View.generateViewId());
-        imageView.setImageResource(R.drawable.plus);
+        imageView.setBackgroundColor(Color.argb(0x00, 0xff, 0xff, 0xff));
+        imageView.setImageResource(R.drawable.ic_remove_circle_24dp);
 
         actv.setText("");
+
 
 
 
