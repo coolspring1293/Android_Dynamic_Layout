@@ -1,6 +1,7 @@
 package com.noandroid.table;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Color;
@@ -33,6 +34,10 @@ public class MainActivity extends Activity {
     RelativeLayout newSingleRL = null;
 
     TextView tt;
+
+
+    //login
+    SharedPreferences sharedPreferences;
 
 
     @Override
